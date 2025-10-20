@@ -1,0 +1,28 @@
+# docker-compose.yml
+version: "3.9"
+
+services:
+  renderer:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      PYTHONUNBUFFERED: "1"
+    restart: unless-stopped
+    # 로그가 너무 많으면 다음 라인으로 제한 가능
+    # logging:
+    #   options:
+    #     max-size: "10m"
+    #     max-file: "3"
+
+    # (선택) 컨테이너 시작 전후 테스트가 필요하면 depends_on/healthcheck를 확장해도 됨
+
+    # ---- NVIDIA GPU로 가속하고 싶으면(옵션) ----
+    # Compose v2 기준 예시 (Docker Desktop 최신 필요)
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - capabilities: ["gpu"]
+    #           count: "all"
+

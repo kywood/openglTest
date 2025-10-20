@@ -1,0 +1,51 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.py.class
+
+# ---- Virtual Environments ----
+venv/
+env/
+.venv/
+.env/
+
+# ---- IDE / Editor ----
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ---- Logs / Outputs ----
+*.log
+*.out
+*.err
+
+# ---- OS files ----
+.DS_Store
+Thumbs.db
+
+# ---- Build / Dist ----
+build/
+dist/
+*.egg-info/
+*.spec
+
+# ---- Images / Generated Outputs ----
+*.png
+*.jpg
+*.jpeg
+*.bmp
+*.gif
+
+# ---- FastAPI / Uvicorn ----
+*.db
+*.sqlite3
+__fastapi_cache__/
+uvicorn.log
+
+# ---- Temporary / Debug ----
+*.bak
+*.tmp
+*.old

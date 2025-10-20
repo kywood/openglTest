@@ -54,3 +54,41 @@ PS> curl.exe -o NUL -s -w "%{time_total}\n" "http://127.0.0.1:8000/render?width=
 ``` 
 
 
+### nividia docker 설치하기
+```commandline
+1.저장소 및 GPG 키 설정
+
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
+   && curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add - \   && curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+   
+  
+2. Nvidia-docker install
+sudo apt-get update
+sudo apt-get install -y nvidia-docker2
+
+3.Docker 서비스 재시작
+sudo systemctl restart docker
+
+3.5 사용자가 root 가 아니므로
+sudo usermod -aG docker ${USER}
+
+TEST
+Test 전에 cuda 버전 에 따른 이미지 전재 여부 확인 하는 방법
+docker search nvidia/cuda
+
+>> sudo docker run --rm --gpus all nvidia/cuda:11.0.3-base-ubuntu18.04 nvidia-smi
+
+-- 여기 싸이트 참고
+https://hub.docker.com/r/nvidia/cuda/tagsdocker run --rm --gpus all nvidia/cuda:12.8.0-cudnn-runtime-ubuntu20.04 nvidia-smi
+
+docker run --rm --gpus all nvidia/cuda:11.0.3-base-ubuntu18.04 nvidia-smi
+
+nvidia-docker info
+
+   
+```
+
+### 참고 URL
+```commandline
+https://www.notion.so/Docker-Nvidia-Docker-1e7b6e926e1e4ebdbe99feeae95bc1eb
+```

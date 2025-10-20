@@ -37,6 +37,12 @@ pip install -r requirements.txt
  http://127.0.0.1:8000/render?width=800&height=800&arrows=200000
 ```
 
+### 윈도우에서의 TEST
+```commandline
+PS> curl.exe -o NUL -s -w "%{time_total}\n" "http://127.0.0.1:8000/render?width=800&height=800&arrows=200000"
+0.119874
+```
+
 ### ️ 실행 결과 -> (20 만개의 화살표 )
 ![img.png](img.png)
 
